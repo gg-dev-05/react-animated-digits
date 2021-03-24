@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="App">
       <Digit digit={3}/>
-      <Digit digit={4}/>
+      <Digit digit={5}/>
       
     </div>
   );
