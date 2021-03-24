@@ -1,36 +1,18 @@
 import Circle from './Circle/Circle'
 import './App.scss'
+import {output} from './logic'
+const { v4: uuidv4 } = require('uuid');
 function App() {
-  const angles = [0, 45, 90, 135, 180];
-  
+  const res = output(0);
+
+  const circles = []
+  for(var i = 0; i < 24; i++){
+    circles.push(<Circle key={uuidv4()} angle1={res[0][i]} angle2={res[1][i]}/>)
+  }
   return (
     <div className="App">
       <div className="container">
-        <Circle angle1={angles[Math.floor(Math.random() * angles.length)]} angle2={angles[Math.floor(Math.random() * angles.length)]}/>
-        <Circle angle1={angles[Math.floor(Math.random() * angles.length)]} angle2={angles[Math.floor(Math.random() * angles.length)]}/>
-        <Circle angle1={angles[Math.floor(Math.random() * angles.length)]} angle2={angles[Math.floor(Math.random() * angles.length)]}/>
-        <Circle angle1={angles[Math.floor(Math.random() * angles.length)]} angle2={angles[Math.floor(Math.random() * angles.length)]}/>
-        <Circle angle1={angles[Math.floor(Math.random() * angles.length)]} angle2={angles[Math.floor(Math.random() * angles.length)]}/>
-        <Circle angle1={angles[Math.floor(Math.random() * angles.length)]} angle2={angles[Math.floor(Math.random() * angles.length)]}/>
-        <Circle angle1={angles[Math.floor(Math.random() * angles.length)]} angle2={angles[Math.floor(Math.random() * angles.length)]}/>
-        <Circle angle1={angles[Math.floor(Math.random() * angles.length)]} angle2={angles[Math.floor(Math.random() * angles.length)]}/>
-        <Circle angle1={angles[Math.floor(Math.random() * angles.length)]} angle2={angles[Math.floor(Math.random() * angles.length)]}/>
-        <Circle angle1={angles[Math.floor(Math.random() * angles.length)]} angle2={angles[Math.floor(Math.random() * angles.length)]}/>
-        <Circle angle1={angles[Math.floor(Math.random() * angles.length)]} angle2={angles[Math.floor(Math.random() * angles.length)]}/>
-        <Circle angle1={angles[Math.floor(Math.random() * angles.length)]} angle2={angles[Math.floor(Math.random() * angles.length)]}/>
-        <Circle angle1={angles[Math.floor(Math.random() * angles.length)]} angle2={angles[Math.floor(Math.random() * angles.length)]}/>
-        <Circle angle1={angles[Math.floor(Math.random() * angles.length)]} angle2={angles[Math.floor(Math.random() * angles.length)]}/>
-        <Circle angle1={angles[Math.floor(Math.random() * angles.length)]} angle2={angles[Math.floor(Math.random() * angles.length)]}/>
-        <Circle angle1={angles[Math.floor(Math.random() * angles.length)]} angle2={angles[Math.floor(Math.random() * angles.length)]}/>
-        <Circle angle1={angles[Math.floor(Math.random() * angles.length)]} angle2={angles[Math.floor(Math.random() * angles.length)]}/>
-        <Circle angle1={angles[Math.floor(Math.random() * angles.length)]} angle2={angles[Math.floor(Math.random() * angles.length)]}/>
-        <Circle angle1={angles[Math.floor(Math.random() * angles.length)]} angle2={angles[Math.floor(Math.random() * angles.length)]}/>
-        <Circle angle1={angles[Math.floor(Math.random() * angles.length)]} angle2={angles[Math.floor(Math.random() * angles.length)]}/>
-        <Circle angle1={angles[Math.floor(Math.random() * angles.length)]} angle2={angles[Math.floor(Math.random() * angles.length)]}/>
-        <Circle angle1={angles[Math.floor(Math.random() * angles.length)]} angle2={angles[Math.floor(Math.random() * angles.length)]}/>
-        <Circle angle1={angles[Math.floor(Math.random() * angles.length)]} angle2={angles[Math.floor(Math.random() * angles.length)]}/>
-        <Circle angle1={angles[Math.floor(Math.random() * angles.length)]} angle2={angles[Math.floor(Math.random() * angles.length)]}/>
-        
+        {circles}        
       </div>
       
     </div>

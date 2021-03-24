@@ -1,7 +1,7 @@
 import React from 'react'
 import './Circle.scss'
 
-const Circle = ({angle1=90, angle2=90}) => {
+const Circle = ({angle1, angle2}) => {
     
     return (
         <div className="circle">
