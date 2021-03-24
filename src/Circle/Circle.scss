@@ -1,0 +1,77 @@
+* {
+  box-sizing: border-box;
+}
+
+@mixin animation-mixin($name, $angle) {
+  @keyframes #{$name} {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate($angle);
+    }
+  }
+}
+
+@include animation-mixin(rotate_45, 45deg);
+@include animation-mixin(rotate_90, 90deg);
+@include animation-mixin(rotate_135, 135 deg);
+@include animation-mixin(rotate_180, 180deg);
+
+.circle {
+  height: 6rem;
+  width: 6rem;
+  border-radius: 50%;
+  border: 1px solid rebeccapurple;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+.line {
+  height: 3rem;
+  width: 0.2rem;
+  background: black;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+.rotate_45_ob {
+  animation-name: rotate_45;
+  transform-origin: bottom center;
+}
+
+.rotate_45_ot {
+  animation-name: rotate_45;
+  transform-origin: top center;
+}
+
+.rotate_90_ob {
+  animation-name: rotate_90;
+  transform-origin: bottom center;
+}
+
+.rotate_90_ot {
+  animation-name: rotate_90;
+  transform-origin: top center;
+}
+
+.rotate_135_ob {
+  animation-name: rotate_135;
+  transform-origin: bottom center;
+}
+
+.rotate_135_ot {
+  animation-name: rotate_135;
+  transform-origin: top center;
+}
+
+.rotate_180_ob {
+  animation-name: rotate_180;
+  transform-origin: bottom center;
+}
+
+.rotate_180_ot {
+  animation-name: rotate_180;
+  transform-origin: top center;
+}
