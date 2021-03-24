@@ -4,8 +4,8 @@ function App() {
   
   return (
     <div className="App">
-      <Digit/>
-      <Digit/>
+      <Digit digit={0}/>
+      <Digit digit={1}/>
       
     </div>
   );
