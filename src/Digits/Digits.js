@@ -1,17 +1,17 @@
 import React from 'react'
 import Digit from '../Digit/Digit'
 import './Digits.scss'
-const { v4: uuidv4, parse } = require('uuid');
+const { v4: uuidv4 } = require('uuid');
 
-const Digits = ({previousValue, newValue}) => {
+const Digits = ({previousValue, currentValue}) => {
     let previousValueAsString = String(previousValue)
-    let newValueAsString = String(newValue)
+    let currentValueAsString = String(currentValue)
     
     const lengthOfPreviousString = previousValueAsString.length;
-    const lengthOfNewString = newValueAsString.length;
+    const lengthOfNewString = currentValueAsString.length;
     const diff = Math.abs(lengthOfPreviousString-lengthOfNewString);
     if(lengthOfNewString < lengthOfPreviousString){
-        newValueAsString = "0".repeat(diff) + newValueAsString;
+        currentValueAsString = "0".repeat(diff) + currentValueAsString;
     }
     else{
         previousValueAsString = "0".repeat(diff)+ previousValueAsString;
@@ -19,7 +19,7 @@ const Digits = ({previousValue, newValue}) => {
     const lengthOfEqualStrings = previousValueAsString.length;
     const digits = []
     for(var i = 0; i < lengthOfEqualStrings; i++){
-        digits.push(<Digit key={uuidv4()} previousDigit={parseInt(previousValueAsString[i])} currentDigit={parseInt(newValueAsString[i])}/>)
+        digits.push(<Digit key={uuidv4()} previousDigit={parseInt(previousValueAsString[i])} currentDigit={parseInt(currentValueAsString[i])}/>)
     }
 
     return (
