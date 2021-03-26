@@ -3,7 +3,7 @@ import Digit from '../Digit/Digit'
 import './Digits.scss'
 const { v4: uuidv4 } = require('uuid');
 
-const Digits = ({previousValue, currentValue}) => {
+const Digits = ({previousValue, currentValue, size}) => {
     let previousValueAsString = String(previousValue)
     let currentValueAsString = String(currentValue)
     
@@ -19,7 +19,7 @@ const Digits = ({previousValue, currentValue}) => {
     const lengthOfEqualStrings = previousValueAsString.length;
     const digits = []
     for(var i = 0; i < lengthOfEqualStrings; i++){
-        digits.push(<Digit key={uuidv4()} previousDigit={parseInt(previousValueAsString[i])} currentDigit={parseInt(currentValueAsString[i])}/>)
+        digits.push(<Digit key={uuidv4()} previousDigit={parseInt(previousValueAsString[i])} currentDigit={parseInt(currentValueAsString[i])} size={size}/>)
     }
 
     return (

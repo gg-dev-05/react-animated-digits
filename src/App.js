@@ -1,13 +1,18 @@
 import Digits from './Digits/Digits'
 import './App.scss'
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+
 
 function App() {
 
+  const [size, setSize] = useState(12);
+  
   return (
     <div className="App">
-      <Digits previousValue={0} newValue={123456789}/>
-    </div>
+        <button onClick={() => setSize(size+1)}>PRESS</button>
+        <Digits previousValue={11} currentValue={12} size={size}/>
+      </div>
+   
   );
 }
 
