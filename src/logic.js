@@ -19,7 +19,7 @@ export function output(n){
             ]
         ]
     }
-    if(n === 1){
+    else if(n === 1){
         return [
             [
                 90, 90, 180, 45,
@@ -39,7 +39,7 @@ export function output(n){
             ]
         ]
     }
-    if(n === 2){
+    else if(n === 2){
         return [
             [
                 90, 90, 90, 180, 
@@ -59,7 +59,7 @@ export function output(n){
             ]
         ]
     }
-    if(n === 3){
+    else if(n === 3){
         return [
             [
                 90, 90, 90, 180, 
@@ -79,7 +79,7 @@ export function output(n){
             ]
         ]
     }
-    if(n === 4){
+    else if(n === 4){
         return [
             [
                 90, 180, 90, 180, 
@@ -99,7 +99,7 @@ export function output(n){
             ]
         ]
     }
-    if(n === 5){
+    else if(n === 5){
         return [
             [
                 90, 90, 90, 180, 
@@ -119,7 +119,7 @@ export function output(n){
             ]
         ]
     }
-    if(n === 6){
+    else if(n === 6){
         return [
             [
                 90, 90, 90, 180, 
@@ -139,7 +139,7 @@ export function output(n){
             ]
         ]
     }
-    if(n === 7){
+    else if(n === 7){
         return [
             [
                 90, 90, 90, 180,
@@ -159,7 +159,7 @@ export function output(n){
             ]
         ]
     }
-    if(n === 8){
+    else if(n === 8){
         return [
             [
                 90, 90, 90, 180,
@@ -179,7 +179,7 @@ export function output(n){
             ]
         ]
     }
-    if(n === 9){
+    else if(n === 9){
         return [
             [
                 90, 90, 90, 180,
@@ -199,4 +199,6 @@ export function output(n){
             ]
         ]
     }
+    else
+        return output(0)
 }
