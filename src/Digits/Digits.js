@@ -14,12 +14,15 @@ const Digits = ({previousValue=0, currentValue=0, size=24, animationSpeed=0.6, c
     const lengthOfPreviousString = previousValueAsString.length;
     const lengthOfNewString = currentValueAsString.length;
     const diff = Math.abs(lengthOfPreviousString-lengthOfNewString);
+
+    // Making both the strings of equal length
     if(lengthOfNewString < lengthOfPreviousString){
         currentValueAsString = "0".repeat(diff) + currentValueAsString;
     }
     else{
         previousValueAsString = "0".repeat(diff)+ previousValueAsString;
     }
+
     const lengthOfEqualStrings = previousValueAsString.length;
     const digits = []
     for(var i = 0; i < lengthOfEqualStrings; i++){

@@ -77,6 +77,15 @@ function App() {
       
     
         </div>
+          {/* 
+              (int) previousValue: 0 (default) set the starting value of the digit
+              (int) currentValue: 0 (default) set the final value of the digit
+              (float) animationSpeed: 0.6s (default) set animation speed
+              (int) size: 24 (default) sets the width of the digit container in rem
+              (string) digitColor: black (default) set the color of the rotating lines
+              (string) digitBorder: black (default) set the border of the digit container. eg: 1px solid red
+              (string) circleBorder: black (default) set the border of the circles around which the lines rotate. eg: 1px solid red
+          */}
         <Digits previousValue={prev} currentValue={value} animationSpeed={speed} size={size} digitColor={color} digitBorder={digitBorder} circleBorder={circleBorder}/>
       </div>
    
