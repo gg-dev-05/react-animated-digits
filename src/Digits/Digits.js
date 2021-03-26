@@ -6,7 +6,7 @@ const { v4: uuidv4 } = require('uuid');
 export const DigitContext = React.createContext()
 
 
-const Digits = ({previousValue, currentValue, size=24, animationSpeed=0.2}) => {
+const Digits = ({previousValue=0, currentValue=0, size=24, animationSpeed=0.6, circleBorder="", digitBorder="", digitColor="black"}) => {
 
     let previousValueAsString = String(previousValue)
     let currentValueAsString = String(currentValue)
@@ -28,7 +28,7 @@ const Digits = ({previousValue, currentValue, size=24, animationSpeed=0.2}) => {
 
     return (
         <div className="digits">
-        <DigitContext.Provider value={{size, animationSpeed}}>
+        <DigitContext.Provider value={{size, animationSpeed, circleBorder, digitBorder, digitColor}}>
             {digits}
         </DigitContext.Provider>
         </div>

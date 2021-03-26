@@ -8,7 +8,7 @@ const { v4: uuidv4 } = require('uuid');
 
 function Digit({previousDigit=0, currentDigit=0}) {
 
-  const {size} = useContext(DigitContext)
+  const {size, digitBorder} = useContext(DigitContext)
   const currentDigitArray = output(currentDigit);
   const previousDigitArray = output(previousDigit);
   const circles = []
@@ -16,7 +16,7 @@ function Digit({previousDigit=0, currentDigit=0}) {
     circles.push(<Circle key={uuidv4()} bottom={[previousDigitArray[0][i], currentDigitArray[0][i]]} top={[previousDigitArray[1][i], currentDigitArray[1][i]]}/>)
   }
   return (
-      <div className="digit_container" style={{width: `${size}rem`}}>
+      <div className="digit_container" style={{width: `${size}rem`, border: `${digitBorder}`}}>
         {circles}        
       </div>
   );
