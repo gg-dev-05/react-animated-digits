@@ -3,7 +3,11 @@ import Digit from '../Digit/Digit'
 import './Digits.scss'
 const { v4: uuidv4 } = require('uuid');
 
-const Digits = ({previousValue, currentValue, size}) => {
+export const DigitContext = React.createContext()
+
+
+const Digits = ({previousValue, currentValue, size=24, animationSpeed=0.2}) => {
+
     let previousValueAsString = String(previousValue)
     let currentValueAsString = String(currentValue)
     
@@ -19,12 +23,14 @@ const Digits = ({previousValue, currentValue, size}) => {
     const lengthOfEqualStrings = previousValueAsString.length;
     const digits = []
     for(var i = 0; i < lengthOfEqualStrings; i++){
-        digits.push(<Digit key={uuidv4()} previousDigit={parseInt(previousValueAsString[i])} currentDigit={parseInt(currentValueAsString[i])} size={size}/>)
+        digits.push(<Digit key={uuidv4()} previousDigit={parseInt(previousValueAsString[i])} currentDigit={parseInt(currentValueAsString[i])}/>)
     }
 
     return (
         <div className="digits">
+        <DigitContext.Provider value={{size, animationSpeed}}>
             {digits}
+        </DigitContext.Provider>
         </div>
     )
 }

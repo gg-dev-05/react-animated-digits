@@ -5,12 +5,10 @@ import { useState } from 'react';
 
 function App() {
 
-  const [size, setSize] = useState(12);
   
   return (
     <div className="App">
-        <button onClick={() => setSize(size+1)}>PRESS</button>
-        <Digits previousValue={11} currentValue={12} size={size}/>
+        <Digits previousValue={0} currentValue={12} size={24} animationSpeed={0.8}/>
       </div>
    
   );
