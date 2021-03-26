@@ -7,15 +7,18 @@ function App() {
   const [secs_1, setSecs_1] = useState(0);
   const [startTime, setStartTime] = useState(0);
   useEffect(() => {
-    const time = new Date();
-    setStartTime(time.getSeconds())
+    // const time = new Date();
+    // setStartTime(time.getSeconds())
+    setStartTime(0)
     setSecs_0(startTime/10)
     setSecs_1(startTime%10)
-  }, [])
+  }, [startTime])
   useEffect(() => {
     const interval = setInterval(() => {
       // setSecs_0(previous => previous+1);
-      setSecs_1(previous => previous+1);
+      setSecs_1((previous) => {
+        return previous === 9 ? 0 : previous+1
+      });
     }, 1000);
     return () => {
       clearInterval(interval);
