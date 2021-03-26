@@ -1,33 +1,12 @@
-import Digit from './Digit/Digit'
+import Digits from './Digits/Digits'
 import './App.scss'
 import { useEffect, useState } from 'react';
+
 function App() {
-  
-  const [secs_0, setSecs_0] = useState(0);
-  const [secs_1, setSecs_1] = useState(0);
-  const [startTime, setStartTime] = useState(0);
-  useEffect(() => {
-    // const time = new Date();
-    // setStartTime(time.getSeconds())
-    setStartTime(0)
-    setSecs_0(startTime/10)
-    setSecs_1(startTime%10)
-  }, [startTime])
-  useEffect(() => {
-    const interval = setInterval(() => {
-      // setSecs_0(previous => previous+1);
-      setSecs_1((previous) => {
-        return previous === 9 ? 0 : previous+1
-      });
-    }, 1000);
-    return () => {
-      clearInterval(interval);
-    };
-  });
+
   return (
     <div className="App">
-      <Digit digit={secs_0}/>
-      <Digit digit={secs_1}/>
+      <Digits previousValue={0} newValue={123456789}/>
     </div>
   );
 }

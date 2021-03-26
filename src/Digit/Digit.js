@@ -4,9 +4,7 @@ import {output} from '../logic'
 import './Digit.scss'
 const { v4: uuidv4 } = require('uuid');
 
-function Digit(props) {
-  const currentDigit = props?.digit >= 0 ? props.digit : 0
-  const previousDigit = currentDigit === 0 ? 9 : currentDigit-1;
+function Digit({previousDigit=0, currentDigit}) {
   const currentDigitArray = output(currentDigit);
   const previousDigitArray = output(previousDigit);
   const circles = []
