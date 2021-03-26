@@ -2,4 +2,5 @@
   width: 24rem;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  transition: all 1s ease-in;
 }
