@@ -1,7 +1,12 @@
 .App {
-  display: flex;
+  display: grid;
+  grid-template-columns: 40% 50%;
+  grid-template-rows: 1fr 1fr;
   margin: 4rem auto;
 }
 .setters {
   margin-right: 2rem;
+}
+.digit_wraper {
+  max-width: 50%;
 }

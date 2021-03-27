@@ -1,6 +1,7 @@
 import './App.scss'
 import { useState } from 'react';
 import Digits from 'react-animated-digits-component'
+import ReactMarkdown from 'react-markdown'
 
 function App() {
 
@@ -16,7 +17,7 @@ function App() {
         <div className="setters">
         <div>
             <h3>Value ({value})</h3>
-            <input type="range" min="0" max="9" style={{width: "100%"}}
+            <input type="number" defaultValue="0" min="0" max="999" style={{width: "100%"}}
               onChange={(e) => {
                 setPrev(value);
                 setValue(e.target.value)
@@ -26,7 +27,7 @@ function App() {
 
         <div>
             <h3> (Fast) Animation Speed (Slow)</h3>
-            <input type="range" min="0" max="5" step="0.25" style={{width: "100%"}}
+            <input type="number" defaultValue="0.6" min="0" max="5" step="0.01" style={{width: "100%"}}
               onChange={(e) => {
                 setSpeed(e.target.value)
               }}
@@ -35,7 +36,7 @@ function App() {
             
         <div>
             <h3>Size ({size})</h3>
-            <input type="range" min="24" max="50" style={{width: "100%"}}
+            <input type="range" defaultValue="24" min="0" max="50" style={{width: "100%"}}
               onChange={(e) => {
                 setSize(e.target.value)
               }}
@@ -77,8 +78,11 @@ function App() {
       
     
         </div>
-         
-        <Digits previousValue={prev} currentValue={value} animationSpeed={speed} size={size} digitColor={"rgb(0,0,100)"} digitBorder={digitBorder} circleBorder={circleBorder}/>
+        <div className="digit_wraper">
+          <Digits previousValue={prev} currentValue={value} animationSpeed={speed} size={size} digitColor={color} digitBorder={digitBorder} circleBorder={circleBorder}/>
+        </div>
+              
+        <ReactMarkdown># Hello, *world*!</ReactMarkdown>
       </div>
    
   );
