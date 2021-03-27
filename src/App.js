@@ -16,17 +16,27 @@ function App() {
     <div className="App" style={{width: "80%", margin: "4rem auto"}} >
         <div className="setters">
         <div>
-            <h3>Value ({value})</h3>
-            <input type="number" defaultValue="0" min="0" max="999" style={{width: "100%"}}
+            <h3>prevValue ({prev})</h3>
+            <input type="number" id="prev" defaultValue="0" min="0" max="999" style={{width: "100%"}}
               onChange={(e) => {
-                setPrev(value);
+                setPrev(e.target.value)
+              }}
+            />
+        </div>
+
+        <div>
+            <h3>currentValue ({value})</h3>
+            <input type="number" id="value" defaultValue="0" min="0" max="999" style={{width: "100%"}}
+              onChange={(e) => {
+                document.getElementById("prev").value = value;
+                setPrev(value)
                 setValue(e.target.value)
               }}
             />
         </div>
 
         <div>
-            <h3> (Fast) Animation Speed (Slow)</h3>
+            <h3>Animation Speed (secs)</h3>
             <input type="number" defaultValue="0.6" min="0" max="5" step="0.01" style={{width: "100%"}}
               onChange={(e) => {
                 setSpeed(e.target.value)
@@ -35,7 +45,7 @@ function App() {
         </div>
             
         <div>
-            <h3>Size ({size})</h3>
+            <h3>Width ({size} rem)</h3>
             <input type="range" defaultValue="24" min="0" max="50" style={{width: "100%"}}
               onChange={(e) => {
                 setSize(e.target.value)
