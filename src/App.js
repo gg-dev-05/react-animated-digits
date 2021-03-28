@@ -1,13 +1,13 @@
 import './App.scss'
 import { useState } from 'react';
 import Digits from 'react-animated-digits-component'
-import ReactMarkdown from 'react-markdown'
+import Code from './Code'
 
 function App() {
 
   const [value, setValue] = useState(0)
   const [prev, setPrev] = useState(0)
-  const [speed, setSpeed] = useState(0.4)
+  const [speed, setSpeed] = useState(0.6)
   const [size, setSize] = useState(24)
   const [digitColor, setColor] = useState("black")
   const [digitBorder, setDigitBorder] = useState(``)
@@ -127,8 +127,9 @@ function App() {
         <div className="digit_wraper">
           <Digits previousValue={prev} currentValue={value} animationSpeed={speed} size={size} digitColor={digitColor} digitBorder={digitBorder} circleBorder={circleBorder}/>
         </div>
-              
-        <ReactMarkdown># Hello, *world*!</ReactMarkdown>
+          
+        <Code previousValue={prev} currentValue={value} animationSpeed={speed} size={size} digitColor={digitColor} digitBorder={digitBorder} circleBorder={circleBorder}/>
+        
       </div>
    
   );
