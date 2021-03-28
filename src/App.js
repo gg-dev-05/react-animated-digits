@@ -17,7 +17,7 @@ function App() {
         <div className="setters">
         <div>
             <h3>prevValue ({prev})</h3>
-            <input type="number" id="prev" defaultValue="0" min="0" max="999" style={{width: "100%"}}
+            <input type="number" id="prev" defaultValue={prev} min="0" max="999" style={{width: "100%"}}
               onChange={(e) => {
                 setPrev(e.target.value)
               }}
@@ -26,7 +26,7 @@ function App() {
 
         <div>
             <h3>currentValue ({value})</h3>
-            <input type="number" id="value" defaultValue="0" min="0" max="999" style={{width: "100%"}}
+            <input type="number" id="value" defaultValue={value} min="0" max="999" style={{width: "100%"}}
               onChange={(e) => {
                 document.getElementById("prev").value = value;
                 setPrev(value)
