@@ -1,5 +1,5 @@
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 
 const Code = ({previousValue, currentValue,animationSpeed, size, digitColor, digitBorder, circleBorder}) => {
@@ -15,7 +15,7 @@ const Code = ({previousValue, currentValue,animationSpeed, size, digitColor, dig
     `;
     return (
         <div className="code">
-            <SyntaxHighlighter language="jsx" style={dark}>
+            <SyntaxHighlighter language="jsx" style={atomDark}>
                 {codeString}
             </SyntaxHighlighter>
         </div>

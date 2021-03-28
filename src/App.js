@@ -5,11 +5,11 @@ import Code from './Code'
 
 function App() {
 
-  const [value, setValue] = useState(0)
+  const [value, setValue] = useState(1)
   const [prev, setPrev] = useState(0)
-  const [speed, setSpeed] = useState(0.6)
+  const [speed, setSpeed] = useState(1)
   const [size, setSize] = useState(24)
-  const [digitColor, setColor] = useState("black")
+  const [digitColor, setColor] = useState("#ffffff")
   const [digitBorder, setDigitBorder] = useState(``)
   const [circleBorder, setCircleBorder] = useState(``)
   return (
@@ -37,7 +37,7 @@ function App() {
 
         <div>
             <h3>Animation Speed (secs)</h3>
-            <input type="number" defaultValue="0.6" min="0" max="5" step="0.01" style={{width: "100%"}}
+            <input type="number" defaultValue={speed} min="0" max="5" step="0.01" style={{width: "100%"}}
               onChange={(e) => {
                 setSpeed(e.target.value)
               }}
@@ -55,7 +55,7 @@ function App() {
         
         <div>
           <h3>digitColor ({digitColor})</h3>
-            <input type="color" 
+            <input type="color" defaultValue={digitColor}
               onChange={(e) => {
                 setColor(e.target.value)
               }}
