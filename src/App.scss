@@ -12,6 +12,8 @@ body {
 }
 h1 {
   font-size: 3rem;
+  text-align: center;
+  margin: 0 1em;
 }
 .App {
   display: grid;
@@ -58,4 +60,10 @@ h1 {
   color: #d462d3;
   font-size: 1.5em;
   margin-left: 2em;
+}
+@media screen and (max-width: 1000px) {
+  .App {
+    display: flex;
+    flex-direction: column;
+  }
 }

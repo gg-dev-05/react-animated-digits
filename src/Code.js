@@ -4,15 +4,24 @@ import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import Popup from './Popup'
 import {makeVisible, makeInvisible} from './Popup'
 
+
+function detectMob() {
+    return ( ( window.innerWidth <= 1000 ) && ( window.innerHeight <= 600 ) );
+}
+
+
 const Code = ({previousValue, currentValue,animationSpeed, size, digitColor, digitBorder, circleBorder}) => {
     
     const [textToDisplay, setTextToDisplay] = useState("Click to copy")
     const copyToClipBoard = () => {
-        setTextToDisplay("Copied to clipboard!")
-        navigator.clipboard.writeText(codeString);
-        setTimeout(() => {
-            setTextToDisplay("Click to copy")
-        }, 2000)
+        if(!detectMob()){
+            setTextToDisplay("Copied to clipboard!")
+            navigator?.clipboard?.writeText(codeString);
+            setTimeout(() => {
+                setTextToDisplay("Click to copy")
+            }, 2000)
+        }
+        
     }
     const codeString = 
     `
