@@ -37,7 +37,7 @@ function App() {
 
         <div>
             <h3>Animation Speed (secs)</h3>
-            <input type="number" defaultValue={speed} min="0" max="5" step="0.01" style={{width: "100%"}}
+            <input type="number" defaultValue={speed} min="0" max="5" step="0.25" style={{width: "100%"}}
               onChange={(e) => {
                 setSpeed(e.target.value)
               }}
