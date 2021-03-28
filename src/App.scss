@@ -2,6 +2,9 @@
 * {
   box-sizing: border-box;
 }
+html {
+  scroll-behavior: smooth;
+}
 body {
   background: #1d1f21;
   color: #fff;
@@ -22,7 +25,7 @@ h1 {
   display: flex;
   align-items: center;
 }
-.code {
+#code {
   cursor: pointer;
   margin-top: 4em;
   display: grid;
@@ -33,6 +36,9 @@ h1 {
     transform: scale(1.1);
   }
   overflow: hidden;
+}
+.scale {
+  transform: scale(1.1);
 }
 .body {
   display: flex;

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import Popup from './Popup'
@@ -23,8 +23,24 @@ const Code = ({previousValue, currentValue,animationSpeed, size, digitColor, dig
             }
         }
     `;
+
+    useEffect(() => {
+        setTimeout(() => {
+            window.scrollTo(0,document.body.scrollHeight);
+            setTimeout(() => {
+                document.getElementById("code").classList.add("scale");
+                makeVisible();
+                setTimeout(() => {
+                    document.getElementById("code").classList.remove("scale");
+                    makeInvisible()
+                }, 800)
+            }, 500)
+        }, 2000)
+    }, [])
+
+
     return (
-        <div className="code" onMouseEnter={() => makeVisible()} onMouseLeave={() => makeInvisible()} onClick={() => copyToClipBoard()}>
+        <div id="code" onMouseEnter={() => makeVisible()} onMouseLeave={() => makeInvisible()} onClick={() => copyToClipBoard()}>
             <Popup textToDisplay={textToDisplay}/>
             <SyntaxHighlighter language="jsx" style={atomDark}>
                 {codeString}
