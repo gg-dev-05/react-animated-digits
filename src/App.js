@@ -9,9 +9,9 @@ function App() {
   const [prev, setPrev] = useState(0)
   const [speed, setSpeed] = useState(0.4)
   const [size, setSize] = useState(24)
-  const [color, setColor] = useState("black")
-  const [digitBorder, setDigitBorder] = useState("")
-  const [circleBorder, setCircleBorder] = useState("")
+  const [digitColor, setColor] = useState("black")
+  const [digitBorder, setDigitBorder] = useState(``)
+  const [circleBorder, setCircleBorder] = useState(``)
   return (
     <div className="App" style={{width: "80%", margin: "4rem auto"}} >
         <div className="setters">
@@ -54,7 +54,7 @@ function App() {
         </div>
         
         <div>
-            <h3>Color ({color})</h3>
+          <h3>digitColor ({digitColor})</h3>
             <input type="color" 
               onChange={(e) => {
                 setColor(e.target.value)
@@ -63,33 +63,69 @@ function App() {
         </div>
 
         <div>
-            <h3>Digit Borders ({color})</h3>
-            <input type="checkbox" 
-              onClick={(e) => {
-                if(e.target.checked)
-                  setDigitBorder(`1px solid ${color}`)
-                else
-                  setDigitBorder("")
-              }}
-            />
+            <h3>Digit Borders ({digitColor})</h3>
+            <div className="group">
+              <input type="checkbox"
+               onClick={(e) => {
+                 let newDigitBorder;
+                  if(e.target.checked){
+                    if(digitBorder === "" ){
+                      newDigitBorder = `1px solid ${digitColor}`
+                    }
+                    else{
+                      newDigitBorder = `${digitColor}`
+                    }
+                    document.getElementById("digitBorder").value = newDigitBorder;
+                    setDigitBorder(newDigitBorder)
+                  }
+                  else{
+                    document.getElementById("digitBorder").value = "";
+                    setDigitBorder(``)
+                    }
+                }}
+              />
+              <input type="string" id="digitBorder" placeholder={`1px solid ${digitColor}`} defaultValue={`${digitBorder}`} style={{width: "100%"}}
+                  onChange={(e) => {
+                    setDigitBorder(e.target.value)
+                  }}
+                />
+            </div>
         </div>
 
         <div>
-            <h3>Circle Borders ({color})</h3>
-            <input type="checkbox" 
-              onClick={(e) => {
-                if(e.target.checked)
-                  setCircleBorder(`1px solid ${color}`)
-                else
-                  setCircleBorder("")
-              }}
-            />
+            <h3>Circle Borders ({digitColor})</h3>
+            <div className="group">
+              <input type="checkbox"
+               onClick={(e) => {
+                 let newCircleBorder;
+                  if(e.target.checked){
+                    if(circleBorder === "" ){
+                      newCircleBorder = `1px dashed ${digitColor}`
+                    }
+                    else{
+                      newCircleBorder = `${digitColor}`
+                    }
+                    document.getElementById("circleBorder").value = newCircleBorder;
+                    setCircleBorder(newCircleBorder)
+                  }
+                  else{
+                    document.getElementById("circleBorder").value = "";
+                    setCircleBorder(``)
+                    }
+                }}
+              />
+              <input type="string" id="circleBorder" placeholder={`1px dashed ${digitColor}`} defaultValue={`${digitBorder}`} style={{width: "100%"}}
+                  onChange={(e) => {
+                    setCircleBorder(e.target.value)
+                  }}
+                />
+            </div>
         </div>
       
     
         </div>
         <div className="digit_wraper">
-          <Digits previousValue={prev} currentValue={value} animationSpeed={speed} size={size} digitColor={color} digitBorder={digitBorder} circleBorder={circleBorder}/>
+          <Digits previousValue={prev} currentValue={value} animationSpeed={speed} size={size} digitColor={digitColor} digitBorder={digitBorder} circleBorder={circleBorder}/>
         </div>
               
         <ReactMarkdown># Hello, *world*!</ReactMarkdown>
